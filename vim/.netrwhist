@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/Users/meqt/Developer/dotfiles/.git'
+let g:netrw_dirhist_4='/Users/meqt/Downloads/MissingSemester/Notes/demo'
+let g:netrw_dirhist_3='/Users/meqt/.ssh'
+let g:netrw_dirhist_2='/Users/meqt/Downloads/MissingSemester/Notes'
+let g:netrw_dirhist_1='/usr/lib/sqlite3'
+let g:netrw_dirhist_0='/Users/meqt/.oh-my-zsh'
+let g:netrw_dirhist_9='/Users/meqt/Downloads/MyServer'
+let g:netrw_dirhist_8='/Users/meqt/Downloads/Simulation/code'
+let g:netrw_dirhist_7='/Users/meqt/Downloads/Simulation/report'
+let g:netrw_dirhist_6='/Users/meqt/Downloads/Simulation/fig'
