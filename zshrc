@@ -14,10 +14,9 @@
 
 # Path to your oh-my-zsh installation.
 #icloud="/Users/meqt/Library/Mobile Documents/com~apple~CloudDocs"
-export ZSH="$HOME/.oh-my-zsh"
+#export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="clean"
 plugins=(git vi-mode)
-source $ZSH/oh-my-zsh.sh
-alias ohmyzsh="mate ~/.oh-my-zsh"
-
+#source $ZSH/oh-my-zsh.sh
+#alias ohmyzsh="mate ~/.oh-my-zsh"
 alias gitlog="git log --all --graph --decorate"
