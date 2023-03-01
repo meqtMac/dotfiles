@@ -19,4 +19,4 @@ ZSH_THEME="clean"
 plugins=(git vi-mode)
 #source $ZSH/oh-my-zsh.sh
 #alias ohmyzsh="mate ~/.oh-my-zsh"
-alias gitlog="git log --all --graph --decorate"
+#alias gitlog="git log --all --graph --decorate"

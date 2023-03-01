@@ -1,0 +1,10 @@
+[user]
+	name = meqt
+	email = meqt@foxmail.com
+[init]
+	defaultBranch = main
+[core]
+	excludesfile = **.DS_Store  .vscode/
+	editor = vim --nofork
+[alias]
+	graph = log --all --graph --decorate
