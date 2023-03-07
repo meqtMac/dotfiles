@@ -6,13 +6,13 @@ DOTFILES_DIR=$(pwd)
 # Define the link targets
 ZSHRC_TARGET=$DOTFILES_DIR/zshrc
 VIM_TARGET=$DOTFILES_DIR/vim
-GITIGNORE_TARGET=$DOTFILES_DIR/gitignore
+GITIGNORE_TARGET=$DOTFILES_DIR/gitconfig
 VIMRC_TARGET=$DOTFILES_DIR/vimrc
 
 # Define the link names
 ZSHRC_LINK=$HOME/.my_zshrc
 VIM_LINK=$HOME/.vim
-GITIGNORE_LINK=$HOME/.gitignore
+GITIGNORE_LINK=$HOME/.gitconfig
 VIMRC_LINK=$HOME/.vimrc
 
 # Function to create a link
@@ -47,5 +47,18 @@ else
     echo ".zshrc already sources .my_zshrc"
 fi
 
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # Check if the "iCloud" link already exists
+    if [ ! -L ~/icloud ]; then
+        # Create the "iCloud" link to the iCloud Drive folder
+        ln -s "${HOME}/Library/Mobile\ Documents/com\~apple\~CloudDocs" ~/icloud
+        echo "Created iCloud link."
+    else
+        echo "iCloud link already exists."
+    fi
+else
+    echo "This script only works on macOS."
+    exit 1
+fi
 
 
