@@ -1,11 +1,12 @@
 # dotfiles
 Storage my dotfiles for:
-- vim
-- git
-- oh-my-zsh
-- macOS trash
+<span style="float:right"><img src = "https://img.shields.io/badge/文档同步时间-20230307-blue"></span>
+- vim <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
+- git <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
+- oh-my-zsh <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
+- macOS trash <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> 
 
-and with an install script.
+and with an install script.<span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
 
 ## vim
 Configurations and color scheme are stored in `vimrc` and `vim` directory.
