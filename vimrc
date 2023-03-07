@@ -1,6 +1,6 @@
 set nocompatible " not vi compatible
 set showmatch " show matching braces when text indicator is over them
-set smartindent
+set autoindent
 set number
 set ts=4
 " set sw=4
