@@ -51,7 +51,7 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
     # Check if the "iCloud" link already exists
     if [ ! -L ~/icloud ]; then
         # Create the "iCloud" link to the iCloud Drive folder
-        ln -s "${HOME}/Library/Mobile\ Documents/com\~apple\~CloudDocs" ~/icloud
+        ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" ~/icloud
         echo "Created iCloud link."
     else
         echo "iCloud link already exists."
