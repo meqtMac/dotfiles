@@ -1,10 +1,11 @@
 # dotfiles
 Storage my dotfiles for:
-<span style="float:right"><img src = "https://img.shields.io/badge/文档同步时间-20230307-blue"></span>
+<span style="float:right"><img src = "https://img.shields.io/badge/文档同步时间-20230313-blue"></span>
 - vim <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
 - git <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
 - oh-my-zsh <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
-- macOS trash <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> 
+- trash <span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-x-red"></span> 
+
 
 and with an install script.<span style="float:right"><img src = "https://img.shields.io/badge/macOS-✔-green"></span> <span style="float:right"><img src = "https://img.shields.io/badge/Linux-✔-green"></span> 
 
@@ -17,10 +18,15 @@ Set up git editor to vim, exclude `.DS_Store` and `.vscode` directory, add an al
 ## zsh
 Configure oh-my-zsh theme and plugins
 
-## macOS
-Create a `t` shell function, to move files to `$HOME/.Trash`, beside, if a file is stored in iCloud Drive, move to `.Trash` directory for iCloud Drive, and it would simultaneously be copied to `$HOME/.Trash`, besides, it would echo if the file is an icloud file or normal file.
+## trash
+Implement a `function t()` to trash instead of `rm` file, 😭😭😭, a rm accidient is the direct cause of this function. 
 
-Beside, create a symbolic link to iCloud Drive.
+In newer version, on macOS, use AppleScript to call Finder App to delete posix file, this is mucher than naively move to trash in older version, which evokes problems like delete files with name confliction.
+
+On Linux, call `gio trash`, I havn't tested the function, as I don't have a linux desktop envioronment.
+
+After all, the install script and the function is write by new bing with following requirements
+> write a shell function t which calls macOS system api on macOS and gio trash on Linux to move a file to trash, it take files in current directory as arguments, if the input is empty, display help message for usage, and implement --help flag
 
 ## install script
 Create symbolics links for dotfiles, and check if `.zshrc` has sources `.my_zshrc`, if not, append code to source `.my_zshrc` in `.zshrc`

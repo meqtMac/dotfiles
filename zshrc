@@ -8,51 +8,23 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 # CS 61A ok alias
 alias ok="python3 ~/icloud/CSLS/CS61A/code/ok --local"
 
-# Move file to trash, including iCloud Drive
-# Check if the shell is running on macOS
-if [[ $(uname -s) == "Darwin" ]]; then
+# new Bing: write a shell function t which calls macOS system api on macOS and gio trash on Linux to move a file to trash, it take files in current directory as arguments, if the input is empty, display help message for usage, and implement --help flag
+function t() {
+    if [[ $# -eq 0 ]] || [[ $1 == "--help" ]]; then
+        echo "Usage: t [file...]"
+        echo "Move files to the trash."
+        return
+    fi
 
-    # Function to check if a file or directory is under iCloud Drive
-    # function is_in_icloud() {
-    #     if [[ -d "$HOME/Library/Mobile Documents/com~apple~CloudDocs" ]]; then
-    #         local path="$(realpath "$1")"
-    #         [[ $path =~ ^$HOME/Library/Mobile\ Documents/com~apple~CloudDocs/.* ]]
-    #     else
-    #         return 1
-    #     fi
-    # }
-
-    # Function to move files to the Trash directory
-    # function t() {
-    #     # Check if the Trash directory exists
-    #     if [[ ! -d "$HOME/.Trash" ]]; then
-    #         echo "Error: ~/.Trash directory does not exist."
-    #         return 1
-    #     fi
-
-    #     # Check if iCloud Drive directory exists
-    #     if [[ -d "$HOME/Library/Mobile Documents/com~apple~CloudDocs" ]]; then
-    #         # Move files to iCloud Drive's Trash directory if they are under iCloud Drive, otherwise move them to the local Trash directory
-    #         for file in "$@"; do
-    #             if is_in_icloud "$file"; then
-    #                 echo "iCloud file"
-    #                 mv -i "$file" "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/.Trash/"
-    #             else
-    #                 echo "non-iCloud file"
-    #                 mv -i "$file" "${HOME}/.Trash/"
-    #             fi
-    #         done
-    #     else
-    #         echo "Error: iCloud Drive directory does not exist."
-    #         return 1
-    #     fi
-    # }
-
-    # use Apple Script instead
-    function t {
-        for file in "$@"
-        do
+    for file in "$@"; do
+        if [[ "$(uname)" == "Darwin" ]]; then
+            # use AppleScript on macOS
             osascript -e "tell application \"Finder\" to delete POSIX file \"$(pwd)/$file\""
-        done
-    }
-fi
+        elif [[ "$(uname)" == "Linux" ]]; then
+            # use gio trash on Linux
+            gio trash "$(pwd)/$file"
+        else
+            echo "Unsupported operating system"
+        fi
+    done
+}
