@@ -9,9 +9,9 @@ alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ok="python3 ~/icloud/CSLS/CS61A/code/ok --local"
 
 # new Bing: write a shell function t which calls macOS system api on macOS and gio trash on Linux to move a file to trash, it take files in current directory as arguments, if the input is empty, display help message for usage, and implement --help flag
-function t() {
+function trash() {
     if [[ $# -eq 0 ]] || [[ $1 == "--help" ]]; then
-        echo "Usage: t [file...]"
+        echo "Usage: trash [file...]"
         echo "Move files to the trash."
         return
     fi
