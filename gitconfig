@@ -4,7 +4,7 @@
 [init]
 	defaultBranch = main
 [core]
-	excludesfile = **.DS_Store  .vscode/
+	excludesfile = ~/.gitignore_global
 	editor = vim --nofork
 [alias]
 	graph = log --all --graph --decorate

@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc/
+*.pyo/
+*.egg-info/
+dist/
+build/
+*.egg
+*.egg-info
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ok autograder
+**/.ok_history
+**/.ok_storage.db

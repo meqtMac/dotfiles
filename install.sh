@@ -6,13 +6,15 @@ DOTFILES_DIR=$(pwd)
 # Define the link targets
 ZSHRC_TARGET=$DOTFILES_DIR/zshrc
 VIM_TARGET=$DOTFILES_DIR/vim
-GITIGNORE_TARGET=$DOTFILES_DIR/gitconfig
+GITCONFIG_TARGET=$DOTFILES_DIR/gitconfig
+GITIGNORE_TARGET=$DOTFILES_DIR/gitignore_global
 VIMRC_TARGET=$DOTFILES_DIR/vimrc
 
 # Define the link names
 ZSHRC_LINK=$HOME/.my_zshrc
 VIM_LINK=$HOME/.vim
-GITIGNORE_LINK=$HOME/.gitconfig
+GITCONFIG_LINK=$HOME/.gitconfig
+GITIGNORE_LINK=$HOME/.gitignore_global
 VIMRC_LINK=$HOME/.vimrc
 
 # Function to create a link
@@ -32,6 +34,7 @@ function create_link {
 # Create the links
 create_link $ZSHRC_TARGET $ZSHRC_LINK
 create_link $VIM_TARGET $VIM_LINK
+create_link $GITCONFIG_TARGET $GITCONFIG_LINK
 create_link $GITIGNORE_TARGET $GITIGNORE_LINK
 create_link $VIMRC_TARGET $VIMRC_LINK
 
