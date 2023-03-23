@@ -22,6 +22,9 @@ build/
 # Jupyter
 .ipynb_checkpoints/
 
+# Swift
+Package.resolved
+
 # ok autograder
 **/.ok_history
 **/.ok_storage.db
