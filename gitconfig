@@ -8,3 +8,5 @@
 	editor = vim --nofork
 [alias]
 	graph = log --all --graph --decorate
+[diff]
+	tool = vimdiff
