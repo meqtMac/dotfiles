@@ -37,4 +37,11 @@ install dotfiles with
 ``` zsh
 ./install.sh
 ```
+
+### install for swift user
+if you are a swift programming language learn, your can install by running 
+``` sh
+./link.swift
+```
+I perfer to write script in swift.
 the install script first check if the links or files with name to be create exist, you need to manually delete those files before install.
