@@ -45,3 +45,14 @@ if you are a swift programming language learn, your can install by running
 ```
 I perfer to write script in swift.
 the install script first check if the links or files with name to be create exist, you need to manually delete those files before install.
+
+## `Package.swift`
+This is dumpy swift package, enable editing, highting and autocomplete `link.swift`, and Source Control with Xcode. I'm now like using `Package.swift` like some what config file for Xcode beside swift package manager manifest.
+
+## toolsets
+- [Swift](https://www.swift.org/download/)
+- [Rust](https://www.rust-lang.org/learn/get-started)
+- Python + Conda
+- [Brew/Apt](https://brew.sh)
+- [OhMyZsh](https://ohmyz.sh)
+- [Hexo](https://hexo.io)
