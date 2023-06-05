@@ -50,7 +50,6 @@ if let zshrcContents = try? String(contentsOfFile: NSHomeDirectory() + "/.zshrc"
     }catch{
         print("Error creating link: \(error.localizedDescription)")
     }
-    
 }
 
 #if os(macOS)

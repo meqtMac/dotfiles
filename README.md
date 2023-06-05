@@ -47,7 +47,7 @@ I perfer to write script in swift.
 the install script first check if the links or files with name to be create exist, you need to manually delete those files before install.
 
 ## `Package.swift`
-This is dumpy swift package, enable editing, highting and autocomplete `link.swift`, and Source Control with Xcode. I'm now like using `Package.swift` like some what config file for Xcode beside swift package manager manifest.
+This is dumpy swift package, enable editing, highting and autocomplete `link.swift`, and Source Control with Xcode. I'm now like using `Package.swift` like some what config file for Xcode beside swift package manager manifest. I'm considering moving link.swift to a real executable target for installization.
 
 ## toolsets
 - [Swift](https://www.swift.org/download/)
