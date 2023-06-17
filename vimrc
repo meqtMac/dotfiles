@@ -9,4 +9,4 @@ set hlsearch                    " Highlight found searches
 set ruler
 syntax on
 set nofoldenable " disable folding by default
-colorscheme molokai
+colorscheme default

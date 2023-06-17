@@ -53,6 +53,8 @@ This is dumpy swift package, enable editing, highting and autocomplete `link.swi
 - [Swift](https://www.swift.org/download/)
 - [Rust](https://www.rust-lang.org/learn/get-started)
 - Python + Conda
-- [Brew/Apt](https://brew.sh)
+- [Brew](https://brew.sh)
 - [OhMyZsh](https://ohmyz.sh)
 - [Hexo](https://hexo.io)
+- [ClashX Pro]
+
