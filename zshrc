@@ -1,7 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="clean"
-plugins=(git vi-mode)
+plugins=(git
+    vi-mode
+    )
 source $ZSH/oh-my-zsh.sh
 alias ohmyzsh="mate ~/.oh-my-zsh"
 
