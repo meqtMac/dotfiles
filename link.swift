@@ -13,11 +13,11 @@ let links: [String] = dotfiles.map { dotfile in
 func createLink(target: String, linkName: String) {
     if FileManager.default.fileExists(atPath: linkName) {
         print("Error: \(linkName) already exists.")
-        return
+//        return
     }
     if !FileManager.default.fileExists(atPath: target) {
         print("Error: \(target) doesn't exists.")
-        return
+//        return
     }
     do {
         try FileManager.default.createSymbolicLink(atPath: linkName, withDestinationPath: target)
@@ -42,7 +42,7 @@ if let zshrcContents = try? String(contentsOfFile: NSHomeDirectory() + "/.zshrc"
         """
     if zshrcContents.contains(zshrcAppend) {
         print(".zshrc already sources .my_zshrc")
-        return
+//        return
     }
     do {
         try zshrcAppend.write(toFile: NSHomeDirectory() + "/.zshrc", atomically: true, encoding: .utf8)
