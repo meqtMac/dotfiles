@@ -10,3 +10,4 @@ set ruler
 syntax on
 set nofoldenable " disable folding by default
 colorscheme default
+

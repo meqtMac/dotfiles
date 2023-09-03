@@ -1,11 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="clean"
-plugins=(git
+plugins=(
+	git
     vi-mode
 #	autojump
 	zsh-autosuggestions
 	zsh-syntax-highlighting
+	docker
 )
 source $ZSH/oh-my-zsh.sh
 alias ohmyzsh="mate ~/.oh-my-zsh"
