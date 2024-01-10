@@ -19,7 +19,7 @@ Set up git editor to vim, exclude `.DS_Store` and `.vscode` directory, add an al
 Configure oh-my-zsh theme and plugins
 
 ## trash
-Implement a `function t()` to trash instead of `rm` file, 😭😭😭, a rm accidient is the direct cause of this function. 
+Implement a `function trash()` to trash instead of `rm` file, 😭😭😭, a rm accidient is the direct cause of this function. 
 
 In newer version, on macOS, use AppleScript to call Finder App to delete posix file, this is mucher than naively move to trash in older version, which evokes problems like delete files with name confliction.
 
@@ -41,13 +41,10 @@ install dotfiles with
 ### install for swift user
 if you are a swift programming language learn, your can install by running 
 ``` sh
-./link.swift
+swift run
 ```
 I perfer to write script in swift.
 the install script first check if the links or files with name to be create exist, you need to manually delete those files before install.
-
-## `Package.swift`
-This is dumpy swift package, enable editing, highting and autocomplete `link.swift`, and Source Control with Xcode. I'm now like using `Package.swift` like some what config file for Xcode beside swift package manager manifest. I'm considering moving link.swift to a real executable target for installization.
 
 ## toolsets
 - [Swift](https://www.swift.org/download/)

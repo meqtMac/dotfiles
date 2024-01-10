@@ -10,3 +10,8 @@
 	graph = log --all --graph --decorate
 [diff]
 	tool = vimdiff
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
