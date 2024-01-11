@@ -7,12 +7,12 @@
 
 import Foundation
 
-func createLink(for target: URL, linkName: URL) {
+func createLinkAndLog(for target: URL, linkName: URL) {
     do {
         try fileManager.createSymbolicLink(at: linkName, withDestinationURL: target)
         logger.info("Created \(linkName)")
     } catch {
-        logger.error("Error creating link: \(error.localizedDescription)")
+        logger.error("\(error.localizedDescription)")
     }
 }
 
