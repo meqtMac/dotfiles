@@ -28,7 +28,6 @@ build/
 ## Xcode
 xcuserdata/
 .build/
-/*.xcodeproj
 DerivedData/
 
 ## swiftpm
