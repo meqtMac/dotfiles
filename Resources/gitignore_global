@@ -32,7 +32,6 @@ DerivedData/
 
 ## swiftpm
 /.swiftpm
-Package.resolved
 .swiftpm/config/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
