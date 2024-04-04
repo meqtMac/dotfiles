@@ -3,9 +3,16 @@
 
 import PackageDescription
 
+let platforms: [Platform] = [
+    .linux,
+    .macOS
+]
+
 let package = Package(
     name: "dotfiles",
-    platforms: [.macOS(.v13)],
+    platforms: [
+        .macOS(.v13),
+        ],
     targets: [
         .executableTarget(name: "dotfiles"),
     ]

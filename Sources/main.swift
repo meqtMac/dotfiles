@@ -8,16 +8,28 @@ let logger = Logger()
 let logger = Logger()
 #endif
 
+#if os(Linux)
+public extension URL {
+    func appending(path: String) -> URL {
+        appendingPathComponent(path)
+    }
+    init(filePath: String) {
+        self = Self.init(fileURLWithPath: filePath)
+    }
+}
+#endif
+ 
+
 let fileManager = FileManager.default
 let homeDirectory = fileManager.homeDirectoryForCurrentUser
 
 let resourceDirectory = {
-    var url = URL(filePath: #file)
+   var url = URL(filePath: #file)
     while url.lastPathComponent != "Sources" {
         url.deleteLastPathComponent()
     }
     url.deleteLastPathComponent()
-    return url.appending(path: "Resources")
+   return url.appending(path: "Resources")
 }()
 
 // MARK: create symbolic links

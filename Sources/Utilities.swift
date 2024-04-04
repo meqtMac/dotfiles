@@ -67,17 +67,15 @@ struct Logger {
 // TODO: put time to the end of the file
 fileprivate extension StringProtocol {
     func dated() -> some StringProtocol  {
-//        let width = try? Logger.getLineWidth()
-        let dateString = "[\(Date().formatted(date: .omitted, time: .standard))]"
+        #if os(Linux)
+        let dateString = Date().debugDescription
+        #else
+        let dateString = "\(Date().formatted(date: .omitted, time: .standard))"
+        #endif
+
+        
         let message = "\(self)"
-//        if let width, width > 0 {
-//            let padding = width - (dateString.count + message.count + 1 ) % width
-//            let spaces = String(repeating: " ", count: padding < width ? padding : 0)
-//            return message + spaces + dateString
-//        } else {
-//            return message + dateString
-//        }
-        return message + dateString
+       return message + dateString
     }
 }
 //#endif
