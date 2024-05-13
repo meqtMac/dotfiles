@@ -16,6 +16,7 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 alias ohmyzsh="mate ~/.oh-my-zsh"
+export LANG=en_US.UTF-8
 
 # new Bing: write a shell function trash which calls macOS system api on macOS and gio trash on Linux to move a file to trash, it take files in current directory as arguments, if the input is empty, display help message for usage, and implement --help flag
 function trash() {

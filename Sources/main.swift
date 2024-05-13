@@ -1,70 +1,50 @@
-import Foundation
+import SystemPackage
 
-// MARK: Configuration
-#if DEBUG
-//import OSLog
-let logger = Logger()
-#else
-let logger = Logger()
-#endif
-
-#if os(Linux)
-public extension URL {
-    func appending(path: String) -> URL {
-        appendingPathComponent(path)
-    }
-    init(filePath: String) {
-        self = Self.init(fileURLWithPath: filePath)
-    }
-}
-#endif
- 
-
-let fileManager = FileManager.default
-let homeDirectory = fileManager.homeDirectoryForCurrentUser
-
-let resourceDirectory = {
-   var url = URL(filePath: #file)
-    while url.lastPathComponent != "Sources" {
-        url.deleteLastPathComponent()
-    }
-    url.deleteLastPathComponent()
-   return url.appending(path: "Resources")
-}()
+let resourcesPath = FilePath(#filePath)
+    .removingLastComponent()
+    .removingLastComponent()
+    .appending("Resources/")
 
 // MARK: create symbolic links
 let zshrcAlias = "my_zshrc"
 let dotfiles = [zshrcAlias, "vim", "gitconfig", "gitignore_global", "vimrc"]
-let targets = dotfiles.map { resourceDirectory.appending(path: $0) }
-let links = dotfiles.map { homeDirectory.appending(path: "." + $0) }
+let targets = dotfiles.map {
+    resourcesPath.appending($0)
+}
+let links = dotfiles.map {
+    homePath.appending("." + $0)
+}
 for (target, link) in zip(targets, links) {
-    createLinkAndLog(for: target, linkName: link)
+    do {
+        try createLink(link, to: target)
+    } catch {
+        logger.error("\(error)")
+    }
 }
 
+let zshrcTemplatePath = resourcesPath.appending("zshrc_template.sh")
+
 // MARK: edit ~/.zshrc
-let zshrcDirectory = homeDirectory.appending(path: ".zshrc")
-if let zshrcContents = try? String(contentsOf: zshrcDirectory) {
-    let template = {
-        let string = try? String(contentsOf: resourceDirectory.appending(path: "zshrc_template.sh"))
-        return (string ?? "").replacingOccurrences(of: "FILE", with: zshrcAlias)
-    }()
+let zshrcPath = homePath.appending(".zshrc")
+if let zshrcContents = try? zshrcPath.content() {
+    
+    let template = try! zshrcTemplatePath.content()
+    
     if zshrcContents.contains(template) {
         logger.warning(".zshrc already sources .my_zshrc")
     } else {
-        do {
-            try template.write(to: zshrcDirectory, atomically: true, encoding: .utf8)
-            logger.info("Added source of template to .zshrc")
-        } catch {
-            logger.error(error.localizedDescription)
-        }
-    }
+        try template.write(to: zshrcPath)
+        logger.info("Added source of template to .zshrc")
+   }
 }
 
 // MARK: icloud
 #if os(macOS)
-let icloudLink = homeDirectory.appending(path: "icloud")
-let icloudDirectory = homeDirectory.appending(path: "Library/Mobile Documents/com~apple~CloudDocs")
-createLinkAndLog(for: icloudDirectory, linkName: icloudLink)
-#else
-logger.error("This script only works on macOS.")
+let icloudLinkPath = homePath.appending("icloud")
+let icloudDstPath = homePath.appending("Library/Mobile Documents/com~apple~CloudDocs/")
+do {
+    try createLink(icloudLinkPath, to: icloudDstPath)
+} catch {
+    logger.error("\(error)")
+}
 #endif
