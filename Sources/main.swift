@@ -1,6 +1,4 @@
 import SystemPackage
-//import Foundation
-
 
 let resourcesPath = FilePath(#filePath)
     .removingLastComponent()
